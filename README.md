@@ -6,7 +6,6 @@ A stunning, performant animation showcase built with pure HTML, CSS, and vanilla
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
-
 ## ✨ Features
 
 ### 🎬 Choreographed Animations
@@ -42,7 +41,7 @@ elevate-animate-js/
 ├── styles.css           # All CSS animations and styling
 ├── script.js            # Dynamic SVG manipulation logic
 ├── star-full.svg        # Filled star graphic
-├── star-outline-2.svg   # Outline star graphic
+
 └── README.md            # This file
 ```
 
@@ -101,6 +100,7 @@ This project uses pure HTML, CSS, and JavaScript - no compilation, bundling, or 
 |------|-----------|---------|
 | 0s - 2s | Rotate & Grow (360° rotation + scale) | Full Star |
 | 0s - 1s | Reveal Left to Right (clip-path) | Outline Star |
+| 0s - 2s | Slide Up (translateY) | Outline Star |
 | 1s - 2.5s | Fill with White (SVG fill animation) | Outline Star |
 | 0s - 2s | Fade In Up (opacity + translateY) | ELEVATE Text |
 | 2.5s - 3.5s | Fade Out | Full Star & ELEVATE Text |
@@ -197,7 +197,6 @@ This project is open source and available for personal and commercial use.
 ## 🤝 Contributing
 
 Feel free to fork this project and customize it for your needs! If you create something cool, share it!
-
 ---
 
 **Built with ❤️ using pure web technologies**

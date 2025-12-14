@@ -41,24 +41,26 @@ body {
     color: #ffffff;
     will-change: transform, opacity;
     animation:
-        fadeInUp 2s ease-out forwards,
-        fadeOut 1s ease-out 2.5s forwards;
+        fadeInUp 1s ease-out 2.2s forwards,
+        fadeOut 1s ease-out 6s forwards;
     text-align: center;
+    opacity: 0;
+    /* Ensure initially invisible */
 }
 
 .image-1-container {
     will-change: transform, opacity;
     animation:
-        rotateAndGrow 2s ease-in-out forwards,
-        fadeOut 1s ease-out 2.5s forwards;
+        rotateAndGrow 2.2s ease-in-out forwards,
+        liftRotated 1s ease-out 2.2s forwards,
+        fadeOut 1s ease-out 6s forwards;
 }
 
 .image-2-container {
-    will-change: clip-path, opacity;
+    will-change: transform, opacity;
     animation:
-        revealLeftToRight 1s ease-out forwards,
-        slideUp 2s ease-out forwards,
-        fadeOut 1s ease-out 2.5s forwards;
+        slideUp 1s ease-out 2.2s forwards,
+        fadeOut 1s ease-out 6s forwards;
 }
 
 .image-2-container img {
@@ -71,17 +73,20 @@ body {
 
 @media (max-width: 768px) {
     .image-1-container img {
-        width: 100px; /* Smaller star */
+        width: 100px;
+        /* Smaller star */
         height: 100px;
     }
 
     .image-2-container svg {
-        width: 150px; /* Smaller outline star */
+        width: 150px;
+        /* Smaller outline star */
         height: 110px;
     }
 
     .elevate-container {
-        font-size: 40px; /* Smaller text */
+        font-size: 40px;
+        /* Smaller text */
         letter-spacing: 10px;
     }
 }
@@ -98,7 +103,7 @@ body {
     }
 
     .elevate-container {
-        font-size: 30px; 
+        font-size: 30px;
         letter-spacing: 5px;
     }
 }
@@ -116,8 +121,18 @@ body {
     }
 
     100% {
-        transform: translateX(0) translateY(-30px) scale(1) rotate(360deg);
+        transform: translateX(0) translateY(0) scale(1) rotate(360deg);
         opacity: 1;
+    }
+}
+
+@keyframes liftRotated {
+    0% {
+        transform: translateY(0) scale(1) rotate(360deg);
+    }
+
+    100% {
+        transform: translateY(-30px) scale(1) rotate(360deg);
     }
 }
 
@@ -128,6 +143,26 @@ body {
 
     100% {
         clip-path: inset(0 0 0 0);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes moveSquare {
+    0% {
+        transform: rotate(25deg) translate(-20px, 20px);
+    }
+
+    100% {
+        transform: rotate(25deg) translate(5px, -5px);
     }
 }
 
@@ -146,10 +181,19 @@ body {
     }
 }
 
-#star-path-stroke {
-    animation: fillWhite 1.5s ease-out 1s forwards;
+@keyframes revealBottomToTop {
+    0% {
+        clip-path: inset(100% 0 0 0);
+    }
+
+    100% {
+        clip-path: inset(0 0 0 0);
+    }
 }
 
+#star-path-stroke {
+    animation: revealBottomToTop 2.2s ease-out forwards;
+}
 
 
 @keyframes fadeInUp {

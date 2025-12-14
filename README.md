@@ -54,7 +54,7 @@ elevate-animate-js/
 
 ```bash
 # Clone the repository
-git clone <repository-url>
+git clone https://github.com/DinoWithCurls/elevate-animate-js.git
 
 # Navigate to the project
 cd elevate-animate-js

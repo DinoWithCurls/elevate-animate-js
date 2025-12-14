@@ -41,7 +41,6 @@ elevate-animate-js/
 ├── styles.css           # All CSS animations and styling
 ├── script.js            # Dynamic SVG manipulation logic
 ├── star-full.svg        # Filled star graphic
-
 └── README.md            # This file
 ```
 

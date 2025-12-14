@@ -44,7 +44,7 @@ body {
     animation:
         revealLeftToRight 1s ease-out forwards,
         slideUp 2s ease-out forwards,
-        fadeOut 1s ease-out 3s forwards;
+        fadeOut 1s ease-out 2.5s forwards;
 }
 
 .image-2-container img {

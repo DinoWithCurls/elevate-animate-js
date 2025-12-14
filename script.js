@@ -1,48 +1,38 @@
-// Wait for DOM to load
-document.addEventListener('DOMContentLoaded', () => {
-    const starOutline = document.getElementById('star-outline');
+// Animation re-trigger functionality with debouncing
+let isAnimating = false;
+const ANIMATION_DURATION = 4000; // Total animation duration in ms (including fade-out)
+
+function restartAnimation() {
+    // Debounce: prevent re-trigger while animation is running
+    if (isAnimating) {
+        console.log('⏳ Animation already in progress. Please wait...');
+        return;
+    }
     
-    // After revealLeftToRight completes (1s), fetch and modify the SVG
+    isAnimating = true;
+    const mainContainer = document.querySelector('.main-container');
+    
+    // Force reflow by cloning and replacing the container
+    const clone = mainContainer.cloneNode(true);
+    mainContainer.parentNode.replaceChild(clone, mainContainer);
+    
+    console.log('🎬 Animation restarted!');
+    
+    // Reset debounce flag after animation completes
     setTimeout(() => {
-        fetch('star-outline-2.svg')
-            .then(response => response.text())
-            .then(svgContent => {
-                // Parse the SVG content
-                const parser = new DOMParser();
-                const svgDoc = parser.parseFromString(svgContent, 'image/svg+xml');
-                const svgElement = svgDoc.querySelector('svg');
-                
-                // Add an ID to the stroke path for animation
-                const paths = svgElement.querySelectorAll('path');
-                paths.forEach((path, index) => {
-                    path.setAttribute('id', `path-${index}`);
-                });
-                
-                // Add CSS animation to the SVG
-                const style = document.createElementNS('http://www.w3.org/2000/svg', 'style');
-                style.textContent = `
-                    @keyframes fillWhite {
-                        0% {
-                            fill: transparent;
-                            fill-opacity: 0;
-                        }
-                        100% {
-                            fill: #FFFFFF;
-                            fill-opacity: 1;
-                        }
-                    }
-                    #path-1 {
-                        animation: fillWhite 1.5s ease-out forwards;
-                    }
-                `;
-                svgElement.insertBefore(style, svgElement.firstChild);
-                
-                // Replace the img with the inline SVG
-                const container = starOutline.parentElement;
-                svgElement.setAttribute('height', '160px');
-                svgElement.setAttribute('width', '220px');
-                container.replaceChild(svgElement, starOutline);
-            })
-            .catch(error => console.error('Error loading SVG:', error));
-    }, 1000); // Wait for revealLeftToRight to complete
+        isAnimating = false;
+        console.log('✅ Animation complete. Ready to restart.');
+    }, ANIMATION_DURATION);
+}
+
+// Make function globally accessible
+window.restartAnimation = restartAnimation;
+
+// Optional: Add keyboard shortcut (press 'R' to restart)
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'r' || e.key === 'R') {
+        restartAnimation();
+    }
 });
+
+console.log('Animation ready! Press "R" to restart or call restartAnimation() in console.');

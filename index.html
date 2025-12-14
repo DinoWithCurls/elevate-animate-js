@@ -6,26 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="styles.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
     <title>ELEVATE Animation</title>
 </head>
 
 <body>
-    <script rel="" src="script.js"></script>
     <div class="main-container">
         <div class="image-1-container">
             <img src="star-full.svg" height="150px" width="150px" alt="">
         </div>
         <div class="image-2-container">
-            <img id="star-outline" src="star-outline-2.svg" height="160px" width="220px" alt="">
+            <svg id="star-outline" width="220px" height="160px" viewBox="2.5 11.5 19 10" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path opacity="0.15"
+                    d="M12 12C12 16.0294 7.97056 12 3 12C7.97056 12 12 16.0294 12 21C12 16.0294 16.0294 12 21 12C16.0294 12 12 16.0294 12 12Z"
+                    fill="#2222" />
+                <path id="star-path-stroke" d="M3 12C7.97056 12 12 16.0294 12 21C12 16.0294 16.0294 12 21 12"
+                    stroke="#FFFFFF" stroke-width="0.3" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
         </div>
         <div class="elevate-container">
             ELEVATE
         </div>
     </div>
+    <script src="script.js"></script>
 </body>
 
 </html>

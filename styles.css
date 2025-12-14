@@ -36,7 +36,6 @@ body {
     will-change: transform, opacity;
     animation:
         rotateAndGrow 2s ease-in-out forwards,
-        slideUp 2s ease-out forwards,
         fadeOut 1s ease-out 2.5s forwards;
 }
 
@@ -59,12 +58,12 @@ body {
 
 @keyframes rotateAndGrow {
     0% {
-        transform: translateX(-200px) scale(0) rotate(0deg);
+        transform: translateX(-200px) translateY(0) scale(0) rotate(0deg);
         opacity: 0;
     }
 
     100% {
-        transform: translateX(0) scale(1) rotate(360deg);
+        transform: translateX(0) translateY(-30px) scale(1) rotate(360deg);
         opacity: 1;
     }
 }
@@ -79,7 +78,9 @@ body {
     }
 }
 
-/* SVG star path fill animation */
+/* SVG star path fill animation - bottom-left to top-right */
+/* SVG star path fill mask animation */
+/* SVG star path fill animation - simple fade */
 @keyframes fillWhite {
     0% {
         fill: transparent;
@@ -95,6 +96,8 @@ body {
 #star-path-stroke {
     animation: fillWhite 1.5s ease-out 1s forwards;
 }
+
+
 
 @keyframes fadeInUp {
     0% {

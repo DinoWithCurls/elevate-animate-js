@@ -1,0 +1,90 @@
+/* =========================================
+   CORE LAYOUT (Preserved)
+   ========================================= */
+body {
+    display: flex;
+    background-color: #000000;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+
+}
+
+.elevate-container {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 80px;
+    letter-spacing: 20px;
+    color: #ffffff;
+    margin: auto;
+    animation: fadeInUp 2s ease-out forwards;
+}
+
+.image-1-container {
+    animation: rotateAndGrow 2s ease-in-out;
+}
+
+.image-2-container {
+    animation: revealLeftToRight 1s ease-out forwards;
+}
+
+/* =========================================
+   ANIMATIONS
+   ========================================= */
+
+
+@keyframes rotateAndGrow {
+    0% {
+        transform: translateX(-200px) scale(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0) scale(1) rotate(360deg);
+        opacity: 1;
+    }
+}
+
+@keyframes revealLeftToRight {
+    0% {
+        clip-path: inset(0 100% 0 0);
+    }
+
+    100% {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+@keyframes fillWhite {
+    0% {
+        fill: transparent;
+        opacity: 0;
+    }
+
+    100% {
+        fill: rgba(255, 255, 255, 0.8);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
